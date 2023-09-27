@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class Controller {
@@ -27,8 +28,8 @@ public class Controller {
 
     //pega o que do banco é passado via link
     @GetMapping("/persons/{id}")
-    public Person id(@PathVariable Long id){
-        return action.findByCod(id);
+    public Optional<Person> id(@PathVariable Long id){
+        return action.findById(id);
     }
 
 }

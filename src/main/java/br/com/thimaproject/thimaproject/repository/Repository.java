@@ -9,11 +9,10 @@ import java.util.Optional;
 public interface Repository extends CrudRepository<Person, Long> {
 
     List<Person> findAll();
+    //Modo antigo
+    //Person findById(Long id);
 
-
-    Person findByCod(Long id);
-    //Esta opção é da extensão Crudrepository
-    //Optional<Person> findById(Long condigo);
+    Optional<Person> findById(Long id);
 
 
     //se for retornar muitos registros por por id por exemplo, usa o abaixo:
