@@ -31,5 +31,9 @@ public class Controller {
     public Optional<Person> id(@PathVariable Long id){
         return action.findById(id);
     }
+    @PutMapping("/persons")
+    public Person update(@RequestBody Person obj){
+        return action.save(obj);
+    }
 
 }
