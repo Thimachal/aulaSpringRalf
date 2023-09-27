@@ -9,6 +9,12 @@ import org.springframework.web.bind.annotation.*;
 public class Controller {
     @Autowired
     private Repository action;
+
+    @PostMapping("/api")
+    public Person register(@RequestBody Person obj){
+        return action.save(obj);
+    }
+
     @GetMapping
     public String mensseger(){
        int num = 1+4;
@@ -21,8 +27,4 @@ public class Controller {
         return phrase + "Thima";
     }
 
-    @PostMapping("/person")
-    public Person person(@RequestBody Person p){
-        return p;
-    }
 }
