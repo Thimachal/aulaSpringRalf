@@ -36,4 +36,9 @@ public class Controller {
         return action.save(obj);
     }
 
+    @DeleteMapping("/persons/{id}")
+    public void remove(@PathVariable Long id){
+        action.deleteById(id);
+    }
+
 }
