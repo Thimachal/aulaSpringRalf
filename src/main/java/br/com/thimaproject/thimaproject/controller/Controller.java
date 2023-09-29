@@ -46,4 +46,8 @@ public class Controller {
         return action.count();
     }
 
+@GetMapping("/persons/nameasc")
+    public List<Person> orderNames() {
+    return action.findByOrderByName();
+}
 }

@@ -16,4 +16,6 @@ public interface Repository extends CrudRepository<Person, Long> {
 
     //se for retornar muitos registros por por id por exemplo, usa o abaixo:
     //List<Pessoa> findById(Long id)
+
+    List<Person> findByOrderByName();
 }
