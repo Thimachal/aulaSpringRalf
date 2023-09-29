@@ -46,8 +46,14 @@ public class Controller {
         return action.count();
     }
 
-@GetMapping("/persons/nameasc")
+    @GetMapping("/persons/namesasc")
     public List<Person> orderNames() {
     return action.findByOrderByName();
 }
+
+    @GetMapping("/persons/namesdesc")
+    public List<Person> orderNamesDesc() {
+        return action.findByOrderByNameDesc();
+    }
+
 }

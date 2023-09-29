@@ -18,4 +18,5 @@ public interface Repository extends CrudRepository<Person, Long> {
     //List<Pessoa> findById(Long id)
 
     List<Person> findByOrderByName();
+    List<Person> findByOrderByNameDesc();
 }
