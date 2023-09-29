@@ -41,4 +41,9 @@ public class Controller {
         action.deleteById(id);
     }
 
+    @GetMapping("/persons/count")
+    public  Long counter(){
+        return action.count();
+    }
+
 }
