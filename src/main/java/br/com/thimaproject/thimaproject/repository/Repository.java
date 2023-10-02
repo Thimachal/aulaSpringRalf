@@ -1,6 +1,7 @@
 package br.com.thimaproject.thimaproject.repository;
 
 import br.com.thimaproject.thimaproject.model.Person;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
@@ -20,4 +21,7 @@ public interface Repository extends CrudRepository<Person, Long> {
     List<Person> findByOrderByName();
     List<Person> findByOrderByNameDesc();
     List <Person> findByNameContaining(String name);
+
+    //exemplo de Query personalizada usando o comando sql
+    @Query(value = "SELECT SUM(age) FROM PERSONS", nativeQuery = true) int plusAges();
 }

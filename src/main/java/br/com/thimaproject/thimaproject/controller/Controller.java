@@ -56,4 +56,9 @@ public class Controller {
         return action.findByOrderByNameDesc();
     }
 
+    @GetMapping("/persons/contain")
+    public List<Person> nameContain(){
+        return  action.findByNameContaining("t");
+    }
+
 }
