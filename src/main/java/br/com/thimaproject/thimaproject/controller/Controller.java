@@ -61,4 +61,9 @@ public class Controller {
         return  action.findByNameContaining("t");
     }
 
+    @GetMapping("/person/plusages")
+    public Integer plusAges() {
+        return action.plusAges();
+    }
+
 }

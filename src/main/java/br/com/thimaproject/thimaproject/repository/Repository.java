@@ -23,5 +23,5 @@ public interface Repository extends CrudRepository<Person, Long> {
     List <Person> findByNameContaining(String name);
 
     //exemplo de Query personalizada usando o comando sql
-    @Query(value = "SELECT SUM(age) FROM PERSONS", nativeQuery = true) int plusAges();
+    @Query(value = "SELECT SUM(age) FROM Person", nativeQuery = true) Integer plusAges();
 }
