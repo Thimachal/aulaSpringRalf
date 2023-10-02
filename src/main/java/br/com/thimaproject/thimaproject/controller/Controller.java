@@ -66,4 +66,9 @@ public class Controller {
         return action.plusAges();
     }
 
+    @GetMapping("person/agebiggerequal")
+    public List<Person> ageBiggerEqual(){
+        return action.ageBiggerEqual(37);
+    }
+
 }
