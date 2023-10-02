@@ -24,4 +24,8 @@ public interface Repository extends CrudRepository<Person, Long> {
 
     //exemplo de Query personalizada usando o comando sql
     @Query(value = "SELECT SUM(age) FROM Person", nativeQuery = true) Integer plusAges();
+
+    //exemplode query condicional
+    @Query(value = "select * from person where age >= : age", nativeQuery = true)
+    List<Person> ageBiggerEqual(Integer age);
 }
