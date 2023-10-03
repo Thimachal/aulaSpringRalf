@@ -4,13 +4,13 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Messenger {
-    private String menssenger;
+    private String messenger;
 
     public String getMenssenger() {
-        return menssenger;
+        return messenger;
     }
 
-    public void setMenssenger(String menssenger) {
-        this.menssenger = menssenger;
+    public void setMessenger(String messenger) {
+        this.messenger = messenger;
     }
 }
