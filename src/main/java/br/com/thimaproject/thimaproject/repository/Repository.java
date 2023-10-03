@@ -26,6 +26,6 @@ public interface Repository extends CrudRepository<Person, Long> {
     @Query(value = "SELECT SUM(age) FROM Person", nativeQuery = true) Integer plusAges();
 
     //exemplode query condicional
-    @Query(value = "select * from person where age >= : age", nativeQuery = true)
+    @Query(value = "SELECT * FROM Person WHERE age >= :age", nativeQuery = true)
     List<Person> ageBiggerEqual(Integer age);
 }

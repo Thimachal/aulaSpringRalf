@@ -61,12 +61,12 @@ public class Controller {
         return  action.findByNameContaining("t");
     }
 
-    @GetMapping("/person/plusages")
+    @GetMapping("/persons/plusages")
     public Integer plusAges() {
         return action.plusAges();
     }
 
-    @GetMapping("person/agebiggerequal")
+    @GetMapping("/persons/agebiggerequal")
     public List<Person> ageBiggerEqual(){
         return action.ageBiggerEqual(37);
     }
