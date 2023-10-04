@@ -8,7 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 @org.springframework.stereotype.Service
-public class Service{
+public class Service {
 
     @Autowired
     private Messenger messenger;
@@ -20,14 +20,13 @@ public class Service{
             messenger.setMessenger("Sorry, mas obrigatório preencher nome");
             return new ResponseEntity<>(messenger, HttpStatus.BAD_REQUEST);
 
-        } else if (obj.getAge() < 0) {
+        } else if (obj.getAge() < 0 ) {
             messenger.setMessenger("Sorry, informe a idade válida");
             return new ResponseEntity<>(messenger, HttpStatus.BAD_REQUEST);
-         }else {
-            return new ResponseEntity<>(action.save(obj),HttpStatus.CREATED);
-            }
-
+        } else {
+            return new ResponseEntity<>(action.save(obj), HttpStatus.CREATED);
         }
+
     }
 
 }
