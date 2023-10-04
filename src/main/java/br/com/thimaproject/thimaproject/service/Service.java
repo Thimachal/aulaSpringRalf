@@ -6,6 +6,7 @@ import br.com.thimaproject.thimaproject.repository.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @org.springframework.stereotype.Service
 public class Service {
@@ -15,6 +16,7 @@ public class Service {
     @Autowired
     private Repository action;
 
+    //metodo para cadastrar pessoas
     public ResponseEntity<?> register(Person obj) {
         if (obj.getName().equals("")) {
             messenger.setMessenger("Sorry, mas obrigatório preencher nome");
@@ -27,6 +29,20 @@ public class Service {
             return new ResponseEntity<>(action.save(obj), HttpStatus.CREATED);
         }
 
+    }
+
+    //metodo para selecionar pessoas
+    public ResponseEntity<?> selectPersons(){
+        return new ResponseEntity<>(action.findAll(), HttpStatus.OK);
+    }
+
+    public ResponseEntity<?> selectionById(Long id){
+        if(action.countById(id) == 0l){
+            messenger.setMessenger("Não foi encontrada a pessoa");
+            return new ResponseEntity<>(messenger, HttpStatus.BAD_REQUEST);
+        }else {
+            return new ResponseEntity<>(action.findById(id), HttpStatus.OK);
+        }
     }
 
 }

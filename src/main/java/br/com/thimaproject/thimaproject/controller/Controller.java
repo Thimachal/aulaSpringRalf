@@ -26,16 +26,21 @@ public class Controller {
 
     //faz a postagem de todo conteúdo requisitado no banco
     @GetMapping("/persons")
-    public List<Person> selecionar(){
-        return action.findAll();
+    public ResponseEntity<?> selectPersons(){
+        return service.selectPersons();
     }
 
 
     //pega o que do banco é passado via link
     @GetMapping("/persons/{id}")
-    public Optional<Person> id(@PathVariable Long id){
-        return action.findById(id);
+    public ResponseEntity<?> id(@PathVariable Long id){
+        return service.selectionById(id);
     }
+
+
+
+
+
     @PutMapping("/persons")
     public Person update(@RequestBody Person obj){
         return action.save(obj);

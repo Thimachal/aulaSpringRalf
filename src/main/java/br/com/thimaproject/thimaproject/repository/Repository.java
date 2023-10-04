@@ -28,4 +28,6 @@ public interface Repository extends CrudRepository<Person, Long> {
     //exemplode query condicional
     @Query(value = "SELECT * FROM Person WHERE age >= :age", nativeQuery = true)
     List<Person> ageBiggerEqual(Integer age);
+
+    Long countById(Long id);
 }
