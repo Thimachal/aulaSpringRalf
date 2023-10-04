@@ -2,7 +2,9 @@ package br.com.thimaproject.thimaproject.controller;
 
 import br.com.thimaproject.thimaproject.model.Person;
 import br.com.thimaproject.thimaproject.repository.Repository;
+import br.com.thimaproject.thimaproject.service.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,10 +15,13 @@ public class Controller {
     @Autowired
     private Repository action;
 
+    @Autowired
+    private Service service;
+
     //pega do banco o que é passado no corpo da requisição
     @PostMapping("/persons")
-    public Person register(@RequestBody Person obj){
-        return action.save(obj);
+    public ResponseEntity<?> register(@RequestBody Person obj){
+        return service.register(obj);
     }
 
     //faz a postagem de todo conteúdo requisitado no banco

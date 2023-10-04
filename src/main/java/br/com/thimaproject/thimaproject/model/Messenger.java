@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 public class Messenger {
     private String messenger;
 
-    public String getMenssenger() {
+    public String getMessenger() {
         return messenger;
     }
 
