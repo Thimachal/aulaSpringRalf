@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.Optional;
+
 @org.springframework.stereotype.Service
 public class Service {
 
@@ -46,7 +48,7 @@ public class Service {
         }
     }
 
-    //metodo para editar dados
+    //metodo para editar pessoas
     public ResponseEntity<?> editPerson(Person obj){
         if(action.countById(obj.getId()) == 0){
             messenger.setMessenger("Sorry mas código informado não existe");
@@ -54,8 +56,31 @@ public class Service {
         }else if (obj.getName().equals("")){
             messenger.setMessenger("Necessário informar o nome");
             return new ResponseEntity<>(messenger, HttpStatus.BAD_REQUEST);
-        }else {
+        } else if (obj.getAge() < 0 ) {
+            messenger.setMessenger("informe a idade válida");
+            return new ResponseEntity<>(messenger, HttpStatus.BAD_REQUEST);
+        } else {
             return new ResponseEntity<>(action.save(obj), HttpStatus.OK);
         }
     }
+
+    //metodo para remover pessoas
+
+    /*public ResponseEntity<?> deletePerson(Long id) {
+
+        if (action.countById(id) == 0l) {
+            messenger.setMessenger("Codigo informado não existe");
+            return new ResponseEntity<>(messenger, HttpStatus.NOT_FOUND);
+        } else {
+
+            Optional<Person> obj = action.findById(id);
+            action.deleteById(obj);
+            messenger.setMessenger("Removido com sucesso");
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+    }*/
+
+
+
+
 }

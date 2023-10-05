@@ -14,6 +14,7 @@ public interface Repository extends CrudRepository<Person, Long> {
     //Person findById(Long id);
 
     Optional<Person> findById(Long id);
+    
 
     //se for retornar muitos registros por por id por exemplo, usa o abaixo:
     //List<Pessoa> findById(Long id)
@@ -30,4 +31,7 @@ public interface Repository extends CrudRepository<Person, Long> {
     List<Person> ageBiggerEqual(Integer age);
 
     Long countById(Long id);
+
+
+    //void deleteById(Optional<Person> obj);
 }
