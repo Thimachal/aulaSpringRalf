@@ -65,20 +65,17 @@ public class Service {
     }
 
     //metodo para remover pessoas
-
-    /*public ResponseEntity<?> deletePerson(Long id) {
+    public ResponseEntity<?> deletePerson(Long id) {
 
         if (action.countById(id) == 0l) {
             messenger.setMessenger("Codigo informado não existe");
             return new ResponseEntity<>(messenger, HttpStatus.NOT_FOUND);
         } else {
-
-            Optional<Person> obj = action.findById(id);
-            action.deleteById(obj);
+            action.deleteById(id);
             messenger.setMessenger("Removido com sucesso");
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(HttpStatus.OK);
         }
-    }*/
+    }
 
 
 

@@ -43,12 +43,12 @@ public class Controller {
     }
 
     //rota para deletar pessoas
-/*
+
     @DeleteMapping("/persons/{id}")
     public ResponseEntity<?> remove(@PathVariable Long id){
         return service.deletePerson(id);
 
-    }*/
+    }
 
 
 
