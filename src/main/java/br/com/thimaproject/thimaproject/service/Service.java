@@ -31,11 +31,12 @@ public class Service {
 
     }
 
-    //metodo para selecionar pessoas
+    //metodo para selecionar todas as pessoas
     public ResponseEntity<?> selectPersons(){
         return new ResponseEntity<>(action.findAll(), HttpStatus.OK);
     }
 
+    //metodo para selecionar pessoas por id
     public ResponseEntity<?> selectionById(Long id){
         if(action.countById(id) == 0l){
             messenger.setMessenger("Não foi encontrada a pessoa");
@@ -45,4 +46,16 @@ public class Service {
         }
     }
 
+    //metodo para editar dados
+    public ResponseEntity<?> editPerson(Person obj){
+        if(action.countById(obj.getId()) == 0){
+            messenger.setMessenger("Sorry mas código informado não existe");
+            return new ResponseEntity<>(messenger, HttpStatus.NOT_FOUND);
+        }else if (obj.getName().equals("")){
+            messenger.setMessenger("Necessário informar o nome");
+            return new ResponseEntity<>(messenger, HttpStatus.BAD_REQUEST);
+        }else {
+            return new ResponseEntity<>(action.save(obj), HttpStatus.OK);
+        }
+    }
 }
