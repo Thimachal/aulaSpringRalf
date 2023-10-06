@@ -1,5 +1,6 @@
 package br.com.thimaproject.thimaproject.repository;
 
+import br.com.thimaproject.thimaproject.model.Client;
 import br.com.thimaproject.thimaproject.model.Person;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -10,6 +11,7 @@ import java.util.Optional;
 public interface Repository extends CrudRepository<Person, Long> {
 
     List<Person> findAll();
+
     //Modo antigo
     //Person findById(Long id);
 

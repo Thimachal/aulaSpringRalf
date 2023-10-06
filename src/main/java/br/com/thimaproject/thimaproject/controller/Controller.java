@@ -1,8 +1,11 @@
 package br.com.thimaproject.thimaproject.controller;
 
+import br.com.thimaproject.thimaproject.model.Client;
 import br.com.thimaproject.thimaproject.model.Person;
 import br.com.thimaproject.thimaproject.repository.Repository;
+import br.com.thimaproject.thimaproject.repository.RepositoryClient;
 import br.com.thimaproject.thimaproject.service.Service;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +17,8 @@ import java.util.Optional;
 public class Controller {
     @Autowired
     private Repository action;
+    @Autowired
+    RepositoryClient actionClient;
 
     @Autowired
     private Service service;
@@ -50,7 +55,15 @@ public class Controller {
 
     }
 
+    @PostMapping("/client")
+    public ResponseEntity<?> registerClient(@Valid @RequestBody Client objClient){
+        return service.registerClients(objClient);
+    }
 
+    @GetMapping("/client")
+    public ResponseEntity<?> listClients(){
+        return service.listClients();
+    }
 
 
 

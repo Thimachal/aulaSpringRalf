@@ -1,8 +1,10 @@
 package br.com.thimaproject.thimaproject.service;
 
+import br.com.thimaproject.thimaproject.model.Client;
 import br.com.thimaproject.thimaproject.model.Messenger;
 import br.com.thimaproject.thimaproject.model.Person;
 import br.com.thimaproject.thimaproject.repository.Repository;
+import br.com.thimaproject.thimaproject.repository.RepositoryClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +19,9 @@ public class Service {
     private Messenger messenger;
     @Autowired
     private Repository action;
+
+    @Autowired
+    RepositoryClient actionClient;
 
     //metodo para cadastrar pessoas
     public ResponseEntity<?> register(Person obj) {
@@ -77,7 +82,16 @@ public class Service {
         }
     }
 
+    //cadastrar clientes
 
+    public ResponseEntity<?> registerClients(Client obj) {
+            return new ResponseEntity<>(actionClient.save(obj), HttpStatus.CREATED);
+    }
+
+    //listar todos os clientes
+    public ResponseEntity<?> listClients(){
+        return new ResponseEntity<>(actionClient.findAll(), HttpStatus.OK);
+    }
 
 
 }
