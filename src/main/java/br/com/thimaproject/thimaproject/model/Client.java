@@ -3,7 +3,7 @@ package br.com.thimaproject.thimaproject.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "tb_client")
+@Table(name = "client")
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
