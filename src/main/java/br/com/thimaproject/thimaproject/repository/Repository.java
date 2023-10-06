@@ -31,7 +31,4 @@ public interface Repository extends CrudRepository<Person, Long> {
     List<Person> ageBiggerEqual(Integer age);
 
     Long countById(Long id);
-
-
-    //void deleteById(Optional<Person> obj);
 }
